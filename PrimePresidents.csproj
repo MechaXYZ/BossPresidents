@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>PrimePresidents</AssemblyName>
-    <Description>My first plugin</Description>
+    <Description>Adds the presidents to ultrakill</Description>
     <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
@@ -14,6 +14,9 @@
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.16" IncludeAssets="compile" />
+    <Reference Include="UMM">
+      <HintPath>D:\SteamLibrary\steamapps\common\ULTRAKILL\BepInEx\plugins\UMM.dll</HintPath>
+    </Reference>
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
