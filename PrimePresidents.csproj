@@ -7,6 +7,7 @@
     <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
+    <ULTRAKILLDir>D:\SteamLibrary\steamapps\common\ULTRAKILL</ULTRAKILLDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,8 +16,23 @@
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.16" IncludeAssets="compile" />
     <Reference Include="UMM">
-      <HintPath>D:\SteamLibrary\steamapps\common\ULTRAKILL\BepInEx\plugins\UMM.dll</HintPath>
+      <HintPath>$(ULTRAKILLDir)\BepInEx\plugins\UMM\UMM.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+        <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
