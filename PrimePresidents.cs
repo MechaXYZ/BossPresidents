@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace PrimePresidents
 {
-    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.0", "Jowari da", true, true)]
+    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.0", "Jowari da", true, false)]
     public class Presidents : UKMod
     {
         private static Harmony harmony;
@@ -111,7 +111,8 @@ namespace PrimePresidents
         [HarmonyPatch(typeof(StockMapInfo), "Awake")]
         internal class Patch03
         {
-            static void Postfix(StockMapInfo __instance){
+            static void Postfix(StockMapInfo __instance)
+            {
                 //try to find dialog in scene and replace it
                 foreach(var source in Resources.FindObjectsOfTypeAll<AudioSource>())
                 {
@@ -120,7 +121,7 @@ namespace PrimePresidents
                         var subtitles = new List<SubtitledAudioSource.SubtitleDataLine>();
                         if(source.clip.GetName() == "mp_intro2")
                         {
-                            Debug.Log("Replacing intro");
+                            Debug.Log("Replacing minos intro");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_intro.mp3");
                             replaced = true;
 
@@ -145,7 +146,7 @@ namespace PrimePresidents
                         }
                         else if(source.clip.GetName() == "mp_outro")
                         {
-                            Debug.Log("Replacing outro");
+                            Debug.Log("Replacing minos outro");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_outro.mp3");
                             replaced = true;
 
@@ -154,8 +155,8 @@ namespace PrimePresidents
                             subtitles.Add(MakeLine("Oh hey a cool robot", 5f));
                             subtitles.Add(MakeLine("Ah, American made, just the way I like to see it", 6.8f));
                             subtitles.Add(MakeLine("American machines like YOU", 9.75f));
-                            subtitles.Add(MakeLine("are what really drives this great nation", 11.6f));
-                            subtitles.Add(MakeLine("keep up the good work, you're doing America proud", 13.7f));
+                            subtitles.Add(MakeLine("Are what really drives this great nation", 11.6f));
+                            subtitles.Add(MakeLine("Keep up the good work, you're doing America proud", 13.7f));
                             subtitles.Add(MakeLine("Anyway, I uh...", 16.2f));
                             subtitles.Add(MakeLine("I forgot how to breathe so I gotta go", 17.36f));
                         }
@@ -170,7 +171,58 @@ namespace PrimePresidents
                         else if(source.clip.GetName() == "mp_useless")
                         {
                             Debug.Log("Replacing useless");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nicetry.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Nice try, kid", 0f));
+                        }
+                        else if (source.clip.GetName() == "sp_thisprison")
+                        {
+                            Debug.Log("Replacing sisyphus intro (prison)");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_escape.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("This obamanopticon...", 0f));
+                            subtitles.Add(MakeLine("To hold ME?", 1.75f));
+                        }
+                        else if (source.clip.GetName() == "sp_intro")
+                        {
+                            Debug.Log("Replacing sisyphus intro");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_intro.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Who the hell are you?", 0f));
+                            subtitles.Add(MakeLine("Don't answer that, I don't care", 1.25f));
+                            subtitles.Add(MakeLine("Now let me tell you...", 2.7f));
+                            subtitles.Add(MakeLine("The people of America have long since forgotten my presidency", 3.5f));
+                            subtitles.Add(MakeLine("And I think it's a shame...", 6.6f));
+                            subtitles.Add(MakeLine("It's a real shame", 8.4f));
+                            subtitles.Add(MakeLine("But I'm gonna remind them what a REAL president looks like", 9.9f));
+                            subtitles.Add(MakeLine("I heard you knocked off Sleepy Joe and I thought...", 14.0f));
+                            subtitles.Add(MakeLine("That's tremendous news, absolutely tremendous", 17.1f));
+                            subtitles.Add(MakeLine("I gotta admit", 20.5f));
+                            subtitles.Add(MakeLine("I wanna see if you've got what it takes to take me down too", 21.3f));
+                            subtitles.Add(MakeLine("Because let me tell you", 24.6f));
+                            subtitles.Add(MakeLine("Nobody takes me down", 26.2f));
+                            subtitles.Add(MakeLine("NOBODY", 27.4f));
+                            subtitles.Add(MakeLine("So before I drain the swamp and crush those armies of liberals...", 28.6f));
+                            subtitles.Add(MakeLine("I'm gonna crush you first. That's right...", 32.8f));
+                            subtitles.Add(MakeLine("You made in China, boston dynamics wannabe piece of shit...", 35f));
+                            subtitles.Add(MakeLine("YOU'RE FIRED", 38.1f));
+
+                        }
+                        else if (source.clip.GetName() == "sp_outro")
+                        {
+                            Debug.Log("Replacing sisyphus outro");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Nice try, kid", 0f));
+                        }
+                        else if (source.clip.GetName() == "sp_keepthemcoming")
+                        {
+                            Debug.Log("Replacing keep them coming");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Nice try, kid", 0f));
