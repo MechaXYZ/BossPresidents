@@ -3,6 +3,7 @@ using UnityEngine;
 using HarmonyLib;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
 namespace PrimePresidents
 {
@@ -27,6 +28,13 @@ namespace PrimePresidents
         {
             harmony.UnpatchSelf();
             base.OnModUnload();
+        }
+
+        private static SubtitledAudioSource.SubtitleDataLine MakeLine(string subtitle, float time){
+            var sub = new SubtitledAudioSource.SubtitleDataLine();
+            sub.subtitle = subtitle;
+            sub.time = time;
+            return sub;
         }
 
         //replace minos prime data
@@ -108,17 +116,71 @@ namespace PrimePresidents
                 foreach(var source in Resources.FindObjectsOfTypeAll<AudioSource>())
                 {
                     if(source.clip){
-                        if(source.clip.GetName() == "mp_intro2"){
+                        bool replaced = false;
+                        var subtitles = new List<SubtitledAudioSource.SubtitleDataLine>();
+                        if(source.clip.GetName() == "mp_intro2")
+                        {
+                            Debug.Log("Replacing intro");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_intro.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Ahh...", 0f));
+                            subtitles.Add(MakeLine("Gotta give it to our penitentiaries", 1.25f));
+                            subtitles.Add(MakeLine("they do a good job of keeping a man locked up", 3.15f));
+                            subtitles.Add(MakeLine("Donald Trump, now you uh...", 6.4f));
+                            subtitles.Add(MakeLine("Listen up, ok?", 8.75f));
+                            subtitles.Add(MakeLine("The 2024 election is right around the corner", 10.4f));
+                            subtitles.Add(MakeLine("The American people want change, they want progress not you", 13f));
+                            subtitles.Add(MakeLine("Your only legacy will be a smear on the history of this great nation", 16.7f));
+                            subtitles.Add(MakeLine("Uhh... listen fa-, listen machine...", 21.25f));
+                            subtitles.Add(MakeLine("Now I do gotta thank you for my freedom, it's the basis of which our country was formed", 24.3f));
+                            subtitles.Add(MakeLine("So your patriotism, I uh...", 29.35f));
+                            subtitles.Add(MakeLine("I do appreciate it", 30.9f));
+                            subtitles.Add(MakeLine("but the uh...", 32.75f));
+                            subtitles.Add(MakeLine("the crimes that you have committed against America and its people... ", 34.4f));
+                            subtitles.Add(MakeLine("They uh...", 38f));
+                            subtitles.Add(MakeLine("They've not been forgotten alright?", 38.9f));
+                            subtitles.Add(MakeLine("And your punishment, according to the constitution is uh...", 40.34f));
+                            subtitles.Add(MakeLine("I... it's DEATH", 43.75f));
                         }
-                        if(source.clip.GetName() == "mp_outro"){
+                        else if(source.clip.GetName() == "mp_outro")
+                        {
+                            Debug.Log("Replacing outro");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_outro.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Aagh!", 0f));
+                            subtitles.Add(MakeLine("It's Joever", 4f));
+                            subtitles.Add(MakeLine("Oh hey a cool robot", 5f));
+                            subtitles.Add(MakeLine("Ah, American made, just the way I like to see it", 6.8f));
+                            subtitles.Add(MakeLine("American machines like YOU", 9.75f));
+                            subtitles.Add(MakeLine("are what really drives this great nation", 11.6f));
+                            subtitles.Add(MakeLine("keep up the good work, you're doing America proud", 13.7f));
+                            subtitles.Add(MakeLine("Anyway, I uh...", 16.2f));
+                            subtitles.Add(MakeLine("I forgot how to breathe so I gotta go", 17.36f));
                         }
-                        if(source.clip.GetName() == "mp_deathscream"){
+                        else if(source.clip.GetName() == "mp_deathscream")
+                        {
+                            Debug.Log("Replacing death scream");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_soda.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("SODA!", 0f));
                         }
-                        if(source.clip.GetName() == "mp_useless"){
+                        else if(source.clip.GetName() == "mp_useless")
+                        {
+                            Debug.Log("Replacing useless");
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nicetry.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("Nice try, kid", 0f));
+                        }
+
+                        //update subtitles if needed
+                        if(replaced){
+                            var subsource = source.GetComponent<SubtitledAudioSource>();
+                            Traverse field = Traverse.Create(subsource).Field("subtitles");
+                            (field.GetValue() as SubtitledAudioSource.SubtitleData).lines = subtitles.ToArray();
                         }
                     }
                 }
