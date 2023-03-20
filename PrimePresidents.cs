@@ -148,6 +148,9 @@ namespace PrimePresidents
                 if(__instance.bossName == "SISYPHUS PRIME"){
                     __instance.bossName = "TRUMP PRIME";
                 }
+                if(__instance.bossName == "FLESH PANOPTICON"){
+                    __instance.bossName = "OBAMANOPTICON";
+                }
             }
         }
 
