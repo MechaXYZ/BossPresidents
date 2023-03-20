@@ -117,17 +117,53 @@ namespace PrimePresidents
                         if(source.clip.GetName() == "mp_deathscream"){
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_soda.mp3");
                         }
+                        if(source.clip.GetName() == "mp_useless"){
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nicetry.mp3");
+                        }
                     }
                 }
 
                 //replace minos meshes
                 foreach(var renderer in Resources.FindObjectsOfTypeAll<SkinnedMeshRenderer>())
                 {
-                    if(renderer.gameObject.name == "MinosPrime_Body.001"){
+                    if(renderer.gameObject.name == "MinosPrime_Body.001")
+                    {
                         var newMat = new Material(renderer.material);
                         newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("JoePrime_1.png");
                         renderer.sharedMaterial = newMat;
                     }
+                }
+            }
+        }
+
+        //replace boss names
+        [HarmonyPatch(typeof(BossHealthBar), "Awake")]
+        internal class Patch04
+        {
+            static void Prefix(BossHealthBar __instance)
+            {
+                if(__instance.bossName == "MINOS PRIME"){
+                    __instance.bossName = "BIDEN PRIME";
+                }
+                if(__instance.bossName == "SISYPHUS PRIME"){
+                    __instance.bossName = "TRUMP PRIME";
+                }
+            }
+        }
+
+        //replace intro texts
+        [HarmonyPatch(typeof(LevelNamePopup), "Start")]
+        internal class Patch05
+        {
+            //replace name AFTER to not interfere with saves
+            static void Postfix(LevelNamePopup __instance)
+            {
+                Traverse field = Traverse.Create(__instance).Field("nameString");
+                if(field.GetValue() as string == "SOUL SURVIVOR"){
+                    field.SetValue("CHIEF OF STATE");
+                }
+                if(field.GetValue() as string == "WAIT OF THE WORLD"){
+                    field.SetValue("SIN OF THE APPRENTICE");
                 }
             }
         }
