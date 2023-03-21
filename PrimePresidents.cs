@@ -237,13 +237,19 @@ namespace PrimePresidents
                     }
                 }
 
-                //replace minos meshes
+                //replace minos and sisyphus meshes
                 foreach(var renderer in Resources.FindObjectsOfTypeAll<SkinnedMeshRenderer>())
                 {
                     if(renderer.gameObject.name == "MinosPrime_Body.001")
                     {
                         var newMat = new Material(renderer.material);
                         newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("JoePrime_1.png");
+                        renderer.sharedMaterial = newMat;
+                    }
+                    if(renderer.gameObject.name == "Sisyphus_Head")
+                    {
+                        var newMat = new Material(renderer.material);
+                        newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpHead.png");
                         renderer.sharedMaterial = newMat;
                     }
                 }
@@ -282,6 +288,52 @@ namespace PrimePresidents
                 if(field.GetValue() as string == "WAIT OF THE WORLD"){
                     field.SetValue("SIN OF THE APPRENTICE");
                 }
+            }
+        }
+
+        //replace panopticon textures
+        [HarmonyPatch(typeof(FleshPrison), "Start")]
+        internal class Patch06
+        {
+            static void Postfix(FleshPrison __instance){
+                //only replace texture for alt version
+                if(__instance.altVersion){
+                    Debug.Log("Swapping in obama");
+
+                    var head = __instance.transform.Find("FleshPrison2").Find("FleshPrison2_Head");
+                    var renderer = head.GetComponent<Renderer>();
+                    var newMat = new Material(renderer.material);
+                    newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
+                    renderer.sharedMaterial = newMat;
+                }
+            }
+        }
+
+        //replace sisyphus trimes
+        [HarmonyPatch(typeof(SisyphusPrime), "Start")]
+        internal class Patch07
+        {
+            static void Postfix(SisyphusPrime __instance){
+                var head = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Head");
+                var beard = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Hair");
+                var hair = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Beard");
+                //replace swap options
+                var cm = head.GetComponent<ChangeMaterials>();
+                for(int i = 0; i < cm.materials.Length; i++){
+                    var newMatCm = new Material(cm.materials[i]);
+                    newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpHead.png");
+                    cm.materials[i] = newMatCm;
+                }
+
+                //replace active
+                var renderer = head.GetComponent<Renderer>();
+                var newMat = new Material(renderer.material);
+                newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpHead.png");
+                renderer.sharedMaterial = newMat;
+
+                //disable the hair and beard display on phase change
+                Destroy(hair.gameObject);
+                Destroy(beard.gameObject);
             }
         }
     }
