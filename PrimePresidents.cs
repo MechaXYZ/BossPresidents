@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace PrimePresidents
 {
-    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.0", "Jowari da", true, false)]
+    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.0", "Replaces the prime fights with current and former U.S. presidents.\nOriginal concept by: https://www.youtube.com/@spunklord5000", true, false)]
     public class Presidents : UKMod
     {
         private static Harmony harmony;
