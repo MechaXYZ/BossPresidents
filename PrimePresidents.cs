@@ -64,6 +64,11 @@ namespace PrimePresidents
                 riderkickLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_joewareeda.mp3");
                 __instance.riderKickVoice = riderkickLines;
 
+                //set crush to biden slam
+                AudioClip[] dropAttackLines = new AudioClip[1];
+                dropAttackLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_slam.mp3");
+                __instance.dropAttackVoice = dropAttackLines;
+
                 //set weak to thats it
                 __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_thats_it.mp3");
 
@@ -98,7 +103,7 @@ namespace PrimePresidents
                     caption = "Biden blast!";
                 }
                 else if(caption == "Crush!"){
-                    caption = "[REPLACE ME]";
+                    caption = "Biden slam!";
                 }
                 else if(caption == "Prepare thyself!"){
                     caption = "Eat some chocolate chocolate chip!";
@@ -203,7 +208,7 @@ namespace PrimePresidents
                             subtitles.Add(MakeLine("I gotta admit", 20.5f));
                             subtitles.Add(MakeLine("I wanna see if you've got what it takes to take me down too", 21.3f));
                             subtitles.Add(MakeLine("Because let me tell you", 24.6f));
-                            subtitles.Add(MakeLine("Nobody takes me down", 26.2f));
+                            subtitles.Add(MakeLine("Nobody takes me down", 25.6f));
                             subtitles.Add(MakeLine("NOBODY", 27.4f));
                             subtitles.Add(MakeLine("So before I drain the swamp and crush those armies of liberals...", 28.6f));
                             subtitles.Add(MakeLine("I'm gonna crush you first. That's right...", 32.8f));
@@ -214,7 +219,7 @@ namespace PrimePresidents
                         else if (source.clip.GetName() == "sp_outro")
                         {
                             Debug.Log("Replacing sisyphus outro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_outro.mp3");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Nice try, kid", 0f));
@@ -222,10 +227,10 @@ namespace PrimePresidents
                         else if (source.clip.GetName() == "sp_keepthemcoming")
                         {
                             Debug.Log("Replacing keep them coming");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_rigged.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("Nice try, kid", 0f));
+                            subtitles.Add(MakeLine("Oh this is so rigged", 0f));
                         }
 
                         //update subtitles if needed
@@ -334,6 +339,35 @@ namespace PrimePresidents
                 //disable the hair and beard display on phase change
                 Destroy(hair.gameObject);
                 Destroy(beard.gameObject);
+                
+                //replace the voice lines
+                //Be gone
+                AudioClip[] clapLines = new AudioClip[1];
+                clapLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bingbong.mp3");
+                __instance.clapVoice = clapLines;
+
+                //this will hurt
+                AudioClip[] explosionLines = new AudioClip[1];
+                explosionLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_disgrace.mp3");
+                __instance.explosionVoice = explosionLines;
+
+                //nice try
+                AudioClip[] tauntLines = new AudioClip[1];
+                tauntLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_nicecoin.mp3");
+                __instance.tauntVoice = tauntLines;
+
+                //you can't escape
+                AudioClip[] stompLines = new AudioClip[1];
+                stompLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bestwwe.mp3");
+                __instance.stompComboVoice = stompLines;
+
+                //destroy
+                AudioClip[] uppercutLines = new AudioClip[1];
+                uppercutLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_fakenews.mp3");
+                __instance.uppercutComboVoice = uppercutLines;
+                
+                //that's it
+                __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_makegreatagain.mp3");
             }
         }
     }
