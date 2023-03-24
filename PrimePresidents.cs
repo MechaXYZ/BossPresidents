@@ -93,20 +93,49 @@ namespace PrimePresidents
                 {
                     caption = "Come here, bucko!";
                 }
-                else if(caption == "Die!"){
+                else if(caption == "Die!")
+                {
                     caption = "Jowarida!";
                 }
-                else if(caption == "WEAK"){
+                else if(caption == "WEAK")
+                {
                     caption = "THAT'S IT BUD";
                 }
-                else if(caption == "Judgement!"){
+                else if(caption == "Judgement!")
+                {
                     caption = "Biden blast!";
                 }
-                else if(caption == "Crush!"){
+                else if(caption == "Crush!")
+                {
                     caption = "Biden slam!";
                 }
-                else if(caption == "Prepare thyself!"){
+                else if(caption == "Prepare thyself!")
+                {
                     caption = "Eat some chocolate chocolate chip!";
+                }
+                else if(caption == "YES! That's it!")
+                {
+                    caption = "Time to make Trump great again!";
+                }
+                else if(caption == "Nice try!")
+                {
+                    caption = "Nice coin, bozo!";
+                }
+                else if(caption == "DESTROY!")
+                {
+                    caption = "Fake news!";
+                }
+                else if(caption == "You can't escape!")
+                {
+                    caption = "I'm the best WWE superstar, absolutely the best";
+                }
+                else if(caption == "BE GONE!")
+                {
+                    caption = "BING BONG!";
+                }
+                else if(caption == "This will hurt.")
+                {
+                    caption = "You're a disgrace.";
                 }
             }
         }
@@ -222,7 +251,23 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_outro.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("Nice try, kid", 0f));
+                            subtitles.Add(MakeLine("You piece of shit, I demand a recount", 0.2f));
+                            subtitles.Add(MakeLine("Who's running this shit anyway?", 2f));
+                            subtitles.Add(MakeLine("I bet its that twink, Gabriel", 3.85f));
+                            subtitles.Add(MakeLine("Russian bots have rigged this", 5.9f));
+                            subtitles.Add(MakeLine("Right under our American noses", 7.3f));
+                            subtitles.Add(MakeLine("If this is the America of tomorrow...", 9.4f));
+                            subtitles.Add(MakeLine("I don't want to be a part of it", 10.9f));
+                            subtitles.Add(MakeLine("This fight was disasterous", 12.45f));
+                            subtitles.Add(MakeLine("Absolutely disasterous", 14.35f));
+                            subtitles.Add(MakeLine("Fuck this fight", 16.15f));
+                            subtitles.Add(MakeLine("And fuck YOU", 17f));
+                            subtitles.Add(MakeLine("Trump OUT", 18.1f));
+                            subtitles.Add(MakeLine("WAAA!", 19.5f));
+                            subtitles.Add(MakeLine("That's you machine", 20.25f));
+                            subtitles.Add(MakeLine("WAAA! WAAA! WAAA!", 21.2f));
+                            subtitles.Add(MakeLine("Keep crying liberal", 22.7f));
+                            subtitles.Add(MakeLine("WAAA! WAAA!", 23.8f));
                         }
                         else if (source.clip.GetName() == "sp_keepthemcoming")
                         {
