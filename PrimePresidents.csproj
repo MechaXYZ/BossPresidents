@@ -4,12 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>PrimePresidents</AssemblyName>
     <Description>Adds the presidents to ultrakill</Description>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <ULTRAKILLDir>D:\SteamLibrary\steamapps\common\ULTRAKILL</ULTRAKILLDir>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Resources\primepresidents" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\primepresidents" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
@@ -33,9 +39,5 @@
     <Reference Include="Assembly-CSharp">
         <HintPath>$(ULTRAKILLDir)\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
-  </ItemGroup>
-  
-  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 </Project>

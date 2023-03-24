@@ -3,21 +3,28 @@ using UnityEngine;
 using HarmonyLib;
 using System.IO;
 using System;
+using System.Reflection;
 using System.Collections.Generic;
 
 namespace PrimePresidents
 {
-    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.0", "Replaces the prime fights with current and former U.S. presidents.\nOriginal concept by: https://www.youtube.com/@spunklord5000", true, false)]
+    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.1", "Replaces the prime fights with current and former U.S. presidents.\nOriginal concept by: https://www.youtube.com/@spunklord5000", true, false)]
     public class Presidents : UKMod
     {
         private static Harmony harmony;
 
-        private static readonly string BaseDirectory = Directory.GetParent(Application.dataPath).FullName;
-        internal static readonly AssetBundle PresidentsAssetBundle = AssetBundle.LoadFromFile(Path.Combine(BaseDirectory, "BepInEx/UMM Mods/PrimePresidents/Assets/primepresidents"));
+        internal static AssetBundle PresidentsAssetBundle;
 
         public override void OnModLoaded()
         {
             Debug.Log("Prime presidents starting");
+
+            //load the asset bundle
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "PrimePresidents.Resources.primepresidents";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName)){
+                PresidentsAssetBundle =  AssetBundle.LoadFromStream(stream);
+            }
 
             //start harmonylib to swap assets
             harmony = new Harmony("gov.PrimePresidents");

@@ -1,6 +1,6 @@
 {
     "name": "PrimePresidents",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/armedturret/PrimePresidents",
     "description": "Replaces the prime fights with current and former U.S. presidents.",
     "dependencies": [
