@@ -6,9 +6,17 @@ using System;
 using System.Reflection;
 using System.Collections.Generic;
 
+// TODO:
+// Replace intro
+// Replace gab/pano texture
+// Replace outro
+// Replace taunts
+// Replace hurt noises
+// Replace subtitles for intro, outro, taunts
+
 namespace PrimePresidents
 {
-    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.0.1", "Replaces the prime fights with current and former U.S. presidents.\nOriginal concept by: https://www.youtube.com/@spunklord5000", true, false)]
+    [UKPlugin("gov.PrimePresidents","Prime Presidents", "1.1.0", "Replaces the prime fights (+Gabriel) with current and former U.S. presidents.\nOriginal concept by: https://www.youtube.com/@spunklord5000", true, false)]
     public class Presidents : UKMod
     {
         private static Harmony harmony;
@@ -328,6 +336,9 @@ namespace PrimePresidents
                 if(__instance.bossName == "FLESH PANOPTICON"){
                     __instance.bossName = "OBAMANOPTICON";
                 }
+                if(__instance.bossName == "GABRIEL, JUDGE OF HELL"){
+                    __instance.bossName = "OBAMA, JUDGE OF DC";
+                }
             }
         }
 
@@ -344,6 +355,15 @@ namespace PrimePresidents
                 }
                 if(field.GetValue() as string == "WAIT OF THE WORLD"){
                     field.SetValue("SIN OF THE APPRENTICE");
+                }
+                if(field.GetValue() as string == "IN THE FLESH"){
+                    field.SetValue("INAUGURAL ADDRESS");
+                }
+
+                //replace layer string as well
+                field = Traverse.Create(__instance).Field("layerString");
+                if(field.GetValue() as string == "GLUTTONY /// ACT I CLIMAX"){
+                    field.SetValue("FEDERAL RESERVE /// ACT I CLIMAX");
                 }
             }
         }
@@ -420,6 +440,46 @@ namespace PrimePresidents
                 
                 //that's it
                 __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_makegreatagain.mp3");
+            }
+        }
+
+        // Replace Gabriel voice lines
+        [HarmonyPatch(typeof(GabrielVoice), "Start")]
+        internal class Patch08
+        {
+            static void Postfix(GabrielVoice __instance)
+            {
+                Traverse tauntSubs = Traverse.Create(__instance).Field("taunts");
+                Traverse tauntSecondSubs = Traverse.Create(__instance).Field("tauntsSecondPhase");
+
+                //check if gabriel one or two
+                if(__instance.GetComponent<Gabriel>())
+                {
+                    __instance.phaseChange = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_phasechange.mp3");
+                    __instance.phaseChangeSubtitle = "Filibuster!";
+
+                    //load the taunts
+                    __instance.taunt = new AudioClip[12];
+                    string[] taunts = new string[12];
+                    __instance.tauntSecondPhase = new AudioClip[12];
+                    string[] tauntsSecondPhase = new string[12];
+                    for(int i = 0; i < 12; i++)
+                    {
+                        __instance.taunt[i] = PresidentsAssetBundle.LoadAsset<AudioClip>(String.Format("obama1_taunt{0}.mp3", i + 1));
+                        //TODO: Implement taunt subtitles
+                        switch(i)
+                        {
+                        default:
+                            taunts[i] = "FIX THE SUBTITLE BOZO";
+                            break;
+                        }
+
+                        __instance.tauntSecondPhase[i] = __instance.taunt[i];
+                        tauntsSecondPhase[i] = taunts[i];
+                    }
+                    tauntSubs.SetValue(taunts);
+                    tauntSecondSubs.SetValue(tauntsSecondPhase);
+                }
             }
         }
     }
