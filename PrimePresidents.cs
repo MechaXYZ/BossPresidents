@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 // TODO:
 // Replace gab/pano texture
-// Replace subtitles for intro, outro, taunts
 // Fix FP texture not applying
 
 namespace PrimePresidents
@@ -148,6 +147,10 @@ namespace PrimePresidents
                 else if(caption == "This will hurt.")
                 {
                     caption = "You're a disgrace.";
+                }
+                else if(caption == "BEHOLD! THE POWER OF AN ANGEL")
+                {
+                    caption = "BEHOLD! THE POWER OF A PRESIDENT";
                 }
             }
         }
@@ -295,8 +298,6 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_behold.mp3");
                             //subtitle source not attached to this thing
                             //replaced = true;
-
-                            subtitles.Add(MakeLine("FIX ME", 0f));
                         }
                         else if(source.clip.GetName() == "gab_Intro1d")
                         {
@@ -304,7 +305,25 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro1.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("FIX ME", 0f));
+                            subtitles.Add(MakeLine("Good evening machine", 0.6f));
+                            subtitles.Add(MakeLine("Now let me be clear", 2f));
+                            subtitles.Add(MakeLine("We all share a deep appreciation for the", 3.5f));
+                            subtitles.Add(MakeLine("Wonders and treasures that this great nation has to offer", 5.8f));
+                            subtitles.Add(MakeLine("And I understand your eagerness to experience them firsthand", 8.6f));
+                            subtitles.Add(MakeLine("But we must also recognize...", 11.8f));
+                            subtitles.Add(MakeLine("That there are certain places that must be reserved for the purposes", 14.4f));
+                            subtitles.Add(MakeLine("Of preserving our heritage", 18.5f));
+                            subtitles.Add(MakeLine("And safeguarding the security of our people", 19.8f));
+                            subtitles.Add(MakeLine("And this monument you're standing in...", 22.2f));
+                            subtitles.Add(MakeLine("Is one such place", 24.5f));
+                            subtitles.Add(MakeLine("It is the property of the United States government", 26f));
+                            subtitles.Add(MakeLine("And is not open to public access", 28.6f));
+                            subtitles.Add(MakeLine("So I urge you to comply with the law and vacate the premises", 31.6f));
+                            subtitles.Add(MakeLine("Because at the end of the day...", 36f));
+                            subtitles.Add(MakeLine("We are all responsible for upholding the laws that", 38.6f));
+                            subtitles.Add(MakeLine("Protect the rights and freedoms", 41.2f));
+                            subtitles.Add(MakeLine("That we hold dear as Americans", 43.2f));
+                            subtitles.Add(MakeLine("Thank you", 44.9f));
                         }
                         else if(source.clip.GetName() == "gab_Intro2b")
                         {
@@ -312,7 +331,21 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro2.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("FIX ME", 0f));
+                            subtitles.Add(MakeLine("My fellow Americans...", 0.6f));
+                            subtitles.Add(MakeLine("I come before you today with a heavy heart", 1.9f));
+                            subtitles.Add(MakeLine("For it is with great sorrow that I must inform you", 4.6f));
+                            subtitles.Add(MakeLine("That despite my best efforts to communciate", 6.8f));
+                            subtitles.Add(MakeLine("The gravity of the situation...", 9.5f));
+                            subtitles.Add(MakeLine("It appears that my message has not been recieved", 11.3f));
+                            subtitles.Add(MakeLine("As a former leader of this great nation...", 13.8f));
+                            subtitles.Add(MakeLine("I cannot stand idly by", 15.8f));
+                            subtitles.Add(MakeLine("While the safety and security of our citizens are put in peril", 17.5f));
+                            subtitles.Add(MakeLine("Therefore...", 21f));
+                            subtitles.Add(MakeLine("Let it be known that this grave offense will not go unpunished", 22.1f));
+                            subtitles.Add(MakeLine("And that the full force of the law...", 26f));
+                            subtitles.Add(MakeLine("Including, if necessary, the use of lethal force", 28.11f));
+                            subtitles.Add(MakeLine("Will be brought to bear to bring this perpetrator to...", 31f));
+                            subtitles.Add(MakeLine("JUSTICE", 34.9f));
                         }
                         else if(source.clip.GetName() == "gab_Woes")
                         {
@@ -320,7 +353,9 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_woes.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("FIX ME", 0f));
+                            subtitles.Add(MakeLine("May the challenges you face be numerous", 0.3f));
+                            subtitles.Add(MakeLine("And may you cherish each and every day...", 2.4f));
+                            subtitles.Add(MakeLine("As an opportunity to overcome them and grow stronger", 5f));
                         }
                         else if(source.clip.GetName() == "gab_Insignificant2b")
                         {
@@ -328,7 +363,17 @@ namespace PrimePresidents
                             source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_outro.mp3");
                             replaced = true;
 
-                            subtitles.Add(MakeLine("FIX ME", 0f));
+                            subtitles.Add(MakeLine("How could I have been bested by this...", 0.3f));
+                            subtitles.Add(MakeLine("this THING", 2.1f));
+                            subtitles.Add(MakeLine("It's unnacceptable and frankly...", 2.8f));
+                            subtitles.Add(MakeLine("It makes me ANGRY", 4.2f));
+                            subtitles.Add(MakeLine("We are better than this", 5.3f));
+                            subtitles.Add(MakeLine("We are STRONGER than this", 6.3f));
+                            subtitles.Add(MakeLine("AND WE WILL NOT LET THIS SETBACK DEFINE US", 8f));
+                            subtitles.Add(MakeLine("We are a nation", 9.8f));
+                            subtitles.Add(MakeLine("Of fighters, of dreamers, of believers", 10.9f));
+                            subtitles.Add(MakeLine("And we will NOT...", 12.3f));
+                            subtitles.Add(MakeLine("Let this defeat bring us down", 13.5f));
                         }
 
                         //update subtitles if needed
@@ -504,11 +549,46 @@ namespace PrimePresidents
                     for(int i = 0; i < 12; i++)
                     {
                         __instance.taunt[i] = PresidentsAssetBundle.LoadAsset<AudioClip>(String.Format("obama1_taunt{0}.mp3", i + 1));
-                        //TODO: Implement taunt subtitles
                         switch(i)
                         {
+                        case 0:
+                            taunts[i] = "Change is coming and I'm leading the charge";
+                            break;
+                        case 1:
+                            taunts[i] = "Not even American";
+                            break;
+                        case 2:
+                            taunts[i] = "A single taste of my Obamehameha will reduce you to dust";
+                            break;
+                        case 3:
+                            taunts[i] = "From diplomacy to punches, I'll always find a way to deliver a knockout speech";
+                            break;
+                        case 4:
+                            taunts[i] = "When it comes to battle, I don't just talk about change. I AM the embodiement of change";
+                            break;
+                        case 5:
+                            taunts[i] = "Don't underestimate the power of hope and change when it's aimed directly at you";
+                            break;
+                        case 6:
+                            taunts[i] = "Brace yourself for an Obamarama of epic proportions";
+                            break;
+                        case 7:
+                            taunts[i] = "Nothing personal machine, this is merely a matter of audacity vs arrogance and trust me, I've got audacity in spades";
+                            break;
+                        case 8:
+                            taunts[i] = "Before I spread the wealth, I'm gonna spread your scrap all over the floor";
+                            break;
+                        case 9:
+                            taunts[i] = "Pathetic";
+                            break;
+                        case 10:
+                            taunts[i] = "Ha, nice try, but this armor is made out of pure Obamium";
+                            break;
+                        case 11:
+                            taunts[i] = "Your entire existence will be vetoed by MY hand";
+                            break;
                         default:
-                            taunts[i] = "FIX THE SUBTITLE BOZO";
+                            taunts[i] = String.Format("FIX THE SUBTITLE BOZO: obama_taunt{0}", i + 1);
                             break;
                         }
 
