@@ -7,12 +7,9 @@ using System.Reflection;
 using System.Collections.Generic;
 
 // TODO:
-// Replace intro
 // Replace gab/pano texture
-// Replace outro
-// Replace taunts
-// Replace hurt noises
 // Replace subtitles for intro, outro, taunts
+// Fix FP texture not applying
 
 namespace PrimePresidents
 {
@@ -292,6 +289,47 @@ namespace PrimePresidents
 
                             subtitles.Add(MakeLine("Oh this is so rigged", 0f));
                         }
+                        else if(source.clip.GetName() == "gab_Behold")
+                        {
+                            Debug.Log("Replacing behold");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_behold.mp3");
+                            //subtitle source not attached to this thing
+                            //replaced = true;
+
+                            subtitles.Add(MakeLine("FIX ME", 0f));
+                        }
+                        else if(source.clip.GetName() == "gab_Intro1d")
+                        {
+                            Debug.Log("Replacing gab intro(1/2)");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro1.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("FIX ME", 0f));
+                        }
+                        else if(source.clip.GetName() == "gab_Intro2b")
+                        {
+                            Debug.Log("Replacing gab intro(2/2)");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro2.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("FIX ME", 0f));
+                        }
+                        else if(source.clip.GetName() == "gab_Woes")
+                        {
+                            Debug.Log("Replacing gab woes");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_woes.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("FIX ME", 0f));
+                        }
+                        else if(source.clip.GetName() == "gab_Insignificant2b")
+                        {
+                            Debug.Log("Replacing gab outro");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_outro.mp3");
+                            replaced = true;
+
+                            subtitles.Add(MakeLine("FIX ME", 0f));
+                        }
 
                         //update subtitles if needed
                         if(replaced){
@@ -479,6 +517,14 @@ namespace PrimePresidents
                     }
                     tauntSubs.SetValue(taunts);
                     tauntSecondSubs.SetValue(tauntsSecondPhase);
+
+                    //load hurt noises
+                    __instance.hurt  = new AudioClip[3];
+                    __instance.hurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt1.mp3");
+                    __instance.hurt[1] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt2.mp3");
+                    __instance.hurt[2] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt3.mp3");
+                    __instance.bigHurt = new AudioClip[1];
+                    __instance.bigHurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_bighurt.mp3");
                 }
             }
         }
