@@ -85,7 +85,7 @@ namespace BossPresidents
                 var body = __instance.transform.Find("Model").Find("MinosPrime_Body.001");
                 var renderer = body.GetComponent<Renderer>();
                 var newMat = new Material(renderer.material);
-                newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("JoePrime_1.png");
+                newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("BidenPrime.png");
                 renderer.sharedMaterial = newMat;
             }
         }
@@ -387,7 +387,7 @@ namespace BossPresidents
                     if (renderer.gameObject.name == "MinosPrime_Body.001")
                     {
                         var newMat = new Material(renderer.material);
-                        newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("JoePrime_1.png");
+                        newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("BidenPrime.png");
                         renderer.sharedMaterial = newMat;
                     }
 
