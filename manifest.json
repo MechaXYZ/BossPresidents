@@ -1,8 +1,8 @@
 {
-    "name": "PrimePresidents",
-    "version_number": "1.1.0",
-    "website_url": "https://github.com/armedturret/PrimePresidents",
-    "description": "Replaces the prime fights (+Gabriel) with current and former U.S. presidents.",
+    "name": "BossPresidents",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/MechaXYZ/BossPresidents",
+    "description": "A fork of armedturret's PrimePresidents. All that's changed is that I added their suits.",
     "dependencies": [
         "BepInEx-BepInExPack-5.4.2100",
 		"	Temperz87-UltraModManager-5.6.0"

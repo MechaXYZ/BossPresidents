@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>BossPresidents</AssemblyName>
+    <Description>Adds the current and last two presidents to ULTRAKILL.</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <ULTRAKILLDir>/mnt/external/0/ultrakill</ULTRAKILLDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Resources/bosspresidents" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/bosspresidents" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.16" IncludeAssets="compile" />
+    <Reference Include="UMM">
+      <HintPath>$(ULTRAKILLDir)/BepInEx/plugins/UMM/UMM.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)/ULTRAKILL_Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)/ULTRAKILL_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)/ULTRAKILL_Data/Managed/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>$(ULTRAKILLDir)/ULTRAKILL_Data/Managed/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+        <HintPath>$(ULTRAKILLDir)/ULTRAKILL_Data/Managed/Assembly-CSharp.dll</HintPath>
+        </Reference>
+  </ItemGroup>
+</Project>
