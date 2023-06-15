@@ -53,31 +53,31 @@ namespace BossPresidents
 
                 // set judgement to biden blast
                 AudioClip[] dropkickLines = new AudioClip[1];
-                dropkickLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_blast.mp3");
+                dropkickLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_blast.wav");
                 __instance.dropkickVoice = dropkickLines;
 
                 // set ppt to choco chip
                 AudioClip[] comboLines = new AudioClip[1];
-                comboLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_chocolate_chocolate.mp3");
+                comboLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_chocolate_chocolate.wav");
                 __instance.comboVoice = comboLines;
 
                 // set thy end is now to come here bucko
                 AudioClip[] boxingLines = new AudioClip[1];
-                boxingLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_come_here.mp3");
+                boxingLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_come_here.wav");
                 __instance.boxingVoice = boxingLines;
 
                 // set die to jowarida
                 AudioClip[] riderkickLines = new AudioClip[1];
-                riderkickLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_joewareeda.mp3");
+                riderkickLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_joewareeda.wav");
                 __instance.riderKickVoice = riderkickLines;
 
                 // set crush to biden slam
                 AudioClip[] dropAttackLines = new AudioClip[1];
-                dropAttackLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_slam.mp3");
+                dropAttackLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_slam.wav");
                 __instance.dropAttackVoice = dropAttackLines;
 
                 // set weak to thats it
-                __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_thats_it.mp3");
+                __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_thats_it.wav");
 
                 Debug.Log("Replacing Minos' texture");
                                
@@ -166,7 +166,7 @@ namespace BossPresidents
                         if (source.clip.GetName() == "mp_intro2")
                         {
                             Debug.Log("Replacing Minos' intro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_intro.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_intro.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Ahh...", 0f));
@@ -191,7 +191,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "mp_outro")
                         {
                             Debug.Log("Replacing minos outro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_outro.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_outro.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Aagh!", 0f));
@@ -207,7 +207,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "mp_deathscream")
                         {
                             Debug.Log("Replacing death scream");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_soda.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_soda.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("SODA!", 0f));
@@ -215,7 +215,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "mp_useless")
                         {
                             Debug.Log("Replacing useless");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("biden_nice_try.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Nice try, kid", 0f));
@@ -223,7 +223,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "sp_thisprison")
                         {
                             Debug.Log("Replacing sisyphus intro (prison)");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_escape.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_escape.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("This obamanopticon...", 0f));
@@ -232,7 +232,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "sp_intro")
                         {
                             Debug.Log("Replacing Sisyphus' intro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_intro.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_intro.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Who the hell are you?", 0f));
@@ -258,7 +258,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "sp_outro")
                         {
                             Debug.Log("Replacing Sisyphus' outro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_outro.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_outro.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("You piece of shit, I demand a recount", 0.2f));
@@ -282,7 +282,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "sp_keepthemcoming")
                         {
                             Debug.Log("Replacing the Sisyphus' restart voiceline");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_rigged.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_rigged.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Oh this is so rigged", 0f));
@@ -290,7 +290,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "gab_Behold")
                         {
                             Debug.Log("Replacing Gabriel's behold voiceline");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_behold.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_behold.wav");
 
                             // subtitle source not attached to this thing
                             // replaced = true;
@@ -298,7 +298,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "gab_Intro1d")
                         {
                             Debug.Log("Replacing Gabriel's intro (1/2)");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro1.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro1.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("Good evening machine", 0.6f));
@@ -324,7 +324,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "gab_Intro2b")
                         {
                             Debug.Log("Replacing Gabriel's intro (2/2)");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro2.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_intro2.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("My fellow Americans...", 0.6f));
@@ -346,7 +346,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "gab_Woes")
                         {
                             Debug.Log("Replacing Gabriel's woes voiceline");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_woes.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_woes.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("May the challenges you face be numerous", 0.3f));
@@ -356,7 +356,7 @@ namespace BossPresidents
                         else if (source.clip.GetName() == "gab_Insignificant2b")
                         {
                             Debug.Log("Replacing Gabriel's outro");
-                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_outro.mp3");
+                            source.clip = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_outro.wav");
                             replaced = true;
 
                             subtitles.Add(MakeLine("How could I have been bested by this...", 0.3f));
@@ -510,31 +510,31 @@ namespace BossPresidents
                 // replace the voice lines
                 // Be gone
                 AudioClip[] clapLines = new AudioClip[1];
-                clapLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bingbong.mp3");
+                clapLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bingbong.wav");
                 __instance.clapVoice = clapLines;
 
                 // this will hurt
                 AudioClip[] explosionLines = new AudioClip[1];
-                explosionLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_disgrace.mp3");
+                explosionLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_disgrace.wav");
                 __instance.explosionVoice = explosionLines;
 
                 // nice try
                 AudioClip[] tauntLines = new AudioClip[1];
-                tauntLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_nicecoin.mp3");
+                tauntLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_nicecoin.wav");
                 __instance.tauntVoice = tauntLines;
 
                 // you can't escape
                 AudioClip[] stompLines = new AudioClip[1];
-                stompLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bestwwe.mp3");
+                stompLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_bestwwe.wav");
                 __instance.stompComboVoice = stompLines;
 
                 // destroy
                 AudioClip[] uppercutLines = new AudioClip[1];
-                uppercutLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_fakenews.mp3");
+                uppercutLines[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_fakenews.wav");
                 __instance.uppercutComboVoice = uppercutLines;
                 
                 // that's it
-                __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_makegreatagain.mp3");
+                __instance.phaseChangeVoice = PresidentsAssetBundle.LoadAsset<AudioClip>("trump_makegreatagain.wav");
             }
         }
 
@@ -550,7 +550,7 @@ namespace BossPresidents
                 // check if gabriel one or two
                 if (__instance.GetComponent<Gabriel>())
                 {
-                    __instance.phaseChange = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_phasechange.mp3");
+                    __instance.phaseChange = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_phasechange.wav");
                     __instance.phaseChangeSubtitle = "Filibuster!";
 
                     // load the taunts
@@ -560,7 +560,7 @@ namespace BossPresidents
                     string[] tauntsSecondPhase = new string[12];
                     for(int i = 0; i < 12; i++)
                     {
-                        __instance.taunt[i] = PresidentsAssetBundle.LoadAsset<AudioClip>(String.Format("obama1_taunt{0}.mp3", i + 1));
+                        __instance.taunt[i] = PresidentsAssetBundle.LoadAsset<AudioClip>(String.Format("obama1_taunt{0}.wav", i + 1));
                         switch(i)
                         {
                         case 0:
@@ -612,11 +612,11 @@ namespace BossPresidents
 
                     // load hurt noises
                     __instance.hurt  = new AudioClip[3];
-                    __instance.hurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt1.mp3");
-                    __instance.hurt[1] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt2.mp3");
-                    __instance.hurt[2] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt3.mp3");
+                    __instance.hurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt1.wav");
+                    __instance.hurt[1] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt2.wav");
+                    __instance.hurt[2] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_hurt3.wav");
                     __instance.bigHurt = new AudioClip[1];
-                    __instance.bigHurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_bighurt.mp3");
+                    __instance.bigHurt[0] = PresidentsAssetBundle.LoadAsset<AudioClip>("obama1_bighurt.wav");
                 }
             }
         }
