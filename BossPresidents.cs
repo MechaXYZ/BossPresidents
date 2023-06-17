@@ -404,6 +404,22 @@ namespace BossPresidents
                         newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpPhase1.png");
                         renderer.sharedMaterial = newMat;
                     }
+						  
+						  if (renderer.gameObject.name == "FleshPrison2_Head") {
+							  Debug.Log("Swapping the Flesh Panopticon head texture with Obama");
+
+							  var newMat = new Material(renderer.material);
+                       newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
+                       renderer.sharedMaterial = newMat;
+							  
+							  var cm = renderer.GetComponent<ChangeMaterials>();
+							  
+							  for(int i = 0; i < cm.materials.Length; i++){
+							  	var newMatCm = new Material(cm.materials[i]);
+							  	newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
+							  	cm.materials[i] = newMatCm;
+							 }
+						  }
                 }
             }
         }
@@ -454,36 +470,26 @@ namespace BossPresidents
                 }
             }
         }
-			
-		  // replace panopticon textures
-        [HarmonyPatch(typeof(FleshPrison), "Start")]
-        internal class Patch06
-        {
-            static void Postfix(FleshPrison __instance){
-                // only replace texture for alt version
-                if (__instance.transform.Find("FleshPrison2")) {
-                    Debug.Log("Swapping the Flesh Panopticon head texture with Obama");
-
-                    var head = __instance.transform.Find("FleshPrison2").Find("FleshPrison2_Head");
-                    var renderer = head.GetComponent<Renderer>();
-                    var newMat = new Material(renderer.material);
-                    newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
-                    renderer.sharedMaterial = newMat;
-                }
-            }
-        }
 		  
 		  // replace gabriel texture
         [HarmonyPatch(typeof(Gabriel), "Start")]
-        internal class Patch10
+        internal class Patch06
         {
             static void Postfix(Gabriel __instance) {
                 Debug.Log("Swapping Gabriel's body texture");
-                var body = __instance.transform.Find("Gabriel(Clone)").Find("gabrielRigged").Find("body");
+                var body = __instance.transform.Find("gabrielRigged").Find("body");
                 var renderer = body.GetComponent<Renderer>();
                 var newMat = new Material(renderer.material);
                 newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("ObamaPhase1.png");
                 renderer.sharedMaterial = newMat;
+					 
+					 var cm = body.GetComponent<ChangeMaterials>();
+					 
+					 for(int i = 0; i < cm.materials.Length; i++){
+                    var newMatCm = new Material(cm.materials[i]);
+                    newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("ObamaPhase" + (i + 1).ToString() + ".png");
+                    cm.materials[i] = newMatCm;
+                }
             }
         }
 		  
@@ -493,6 +499,7 @@ namespace BossPresidents
         {
             static void Postfix(SisyphusPrime __instance){
                 var head = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Head");
+					 var body = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Body");
                 var beard = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Hair");
                 var hair = __instance.transform.Find("Sisyphus (1)").Find("Sisyphus_Beard");
 
@@ -503,13 +510,13 @@ namespace BossPresidents
                     newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpHead.png");
                     cm.materials[i] = newMatCm;
                 }
-
-                // replace active
+					
+                // replace active				 
                 var renderer = head.GetComponent<Renderer>();
                 var newMat = new Material(renderer.material);
                 newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpHead.png");
                 renderer.sharedMaterial = newMat;
-
+					 
                 // disable the hair and beard display on phase change
                 // Destroy(hair.gameObject);
                 // Destroy(beard.gameObject);
