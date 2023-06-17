@@ -414,7 +414,7 @@ namespace BossPresidents
 							  
 							  var cm = renderer.GetComponent<ChangeMaterials>();
 							  
-							  for(int i = 0; i < cm.materials.Length; i++){
+							  for (int i = 0; i < cm.materials.Length; i++){
 							  	var newMatCm = new Material(cm.materials[i]);
 							  	newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
 							  	cm.materials[i] = newMatCm;
@@ -487,7 +487,7 @@ namespace BossPresidents
 					 
 					 for(int i = 0; i < cm.materials.Length; i++){
                     var newMatCm = new Material(cm.materials[i]);
-                    newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("ObamaPhase" + (i + 1).ToString() + ".png");
+                    newMatCm.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("ObamaPhase1.png");
                     cm.materials[i] = newMatCm;
                 }
             }
