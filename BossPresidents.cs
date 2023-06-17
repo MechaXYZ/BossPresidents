@@ -400,6 +400,7 @@ namespace BossPresidents
 
                     if (renderer.gameObject.name == "Sisyphus_Body")
                     {
+						  		Debug.Log("test because github");
                         var newMat = new Material(renderer.material);
                         newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("TrumpPhase1.png");
                         renderer.sharedMaterial = newMat;
