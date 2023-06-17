@@ -411,6 +411,13 @@ namespace BossPresidents
                         newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("ObamaPhase1.png");
                         renderer.sharedMaterial = newMat;
                     }
+						  
+						  if (renderer.gameObject.name == "FleshPrison2_Head")
+                    {
+                        var newMat = new Material(renderer.material);
+                        newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
+                        renderer.sharedMaterial = newMat;
+                    }
                 }
             }
         }
@@ -458,24 +465,6 @@ namespace BossPresidents
                 field = Traverse.Create(__instance).Field("layerString");
                 if (field.GetValue() as string == "GLUTTONY /// ACT I CLIMAX"){
                     field.SetValue("FEDERAL RESERVE /// ACT I CLIMAX");
-                }
-            }
-        }
-
-        // replace panopticon textures
-        [HarmonyPatch(typeof(FleshPrison), "Start")]
-        internal class Patch06
-        {
-            static void Postfix(FleshPrison __instance){
-                // only replace texture for alt version
-                if (__instance.altVersion){
-                    Debug.Log("Swapping the Flesh Panopticon with Obama");
-
-                    var head = __instance.transform.Find("FleshPrison2").Find("FleshPrison2_Head");
-                    var renderer = head.GetComponent<Renderer>();
-                    var newMat = new Material(renderer.material);
-                    newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
-                    renderer.sharedMaterial = newMat;
                 }
             }
         }
