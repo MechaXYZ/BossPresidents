@@ -413,7 +413,7 @@ namespace BossPresidents
                        newMat.mainTexture = PresidentsAssetBundle.LoadAsset<Texture2D>("Obamanopticon.png");
                        renderer.sharedMaterial = newMat;
 							  
-							  var cm = renderer.GetComponent<ChangeMaterials>();
+							  var cm = renderer.gameObject.GetComponent<ChangeMaterials>();
 							  
 							  for (int i = 0; i < cm.materials.Length; i++){
 							  	var newMatCm = new Material(cm.materials[i]);
